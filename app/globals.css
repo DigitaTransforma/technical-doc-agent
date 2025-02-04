@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ai-primary: #3b82f6;
+  --ai-secondary: #60a5fa;
+  --ai-accent: #2563eb;
+  --ai-background: #f0f9ff;
+  --ai-text: #1e3a8a;
+}
+
+body {
+  background-color: var(--ai-background);
+  color: var(--ai-text);
+}
+
+@layer components {
+  .ai-button {
+    @apply px-6 py-3 rounded-full text-white font-medium transition-all duration-300 ease-in-out;
+    background-color: var(--ai-primary);
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.25);
+  }
+
+  .ai-button:hover {
+    background-color: var(--ai-accent);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 6px 8px rgba(37, 99, 235, 0.3);
+  }
+
+  .ai-input {
+    @apply mt-1 block w-full bg-transparent border-b-2 border-ai-secondary px-0 py-2 text-ai-text placeholder-ai-secondary focus:border-ai-primary focus:outline-none transition-all duration-300;
+  }
+
+  .ai-input::placeholder {
+    @apply text-ai-secondary opacity-50;
+  }
+
+  .ai-card {
+    @apply bg-white rounded-2xl shadow-lg p-8 transition-all duration-300 ease-in-out max-w-2xl mx-auto;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
+  }
+
+  .ai-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2);
+  }
+
+  .playful-input {
+    @apply relative mb-6;
+  }
+
+  .playful-input input,
+  .playful-input textarea {
+    @apply ai-input;
+  }
+
+  .playful-input label {
+    @apply absolute left-0 top-2 text-ai-secondary transition-all duration-300 ease-in-out pointer-events-none;
+  }
+
+  .playful-input input:focus ~ label,
+  .playful-input input:not(:placeholder-shown) ~ label,
+  .playful-input textarea:focus ~ label,
+  .playful-input textarea:not(:placeholder-shown) ~ label {
+    @apply transform -translate-y-6 scale-75 text-ai-primary;
+  }
+
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose p,
+  .prose ul,
+  .prose ol,
+  .prose li,
+  .prose table,
+  .prose td,
+  .prose th {
+    @apply text-black;
+  }
+
+  .prose h1 {
+    @apply text-2xl font-bold mb-4 text-ai-primary;
+  }
+
+  .prose h2 {
+    @apply text-xl font-semibold mt-6 mb-3 text-ai-secondary;
+  }
+
+  .prose h3 {
+    @apply text-lg font-medium mt-4 mb-2 text-ai-accent;
+  }
+
+  .prose p {
+    @apply mb-4;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply mb-4 pl-5;
+  }
+
+  .prose li {
+    @apply mb-1;
+  }
+
+  .prose table {
+    @apply mb-4 min-w-full divide-y divide-ai-secondary;
+  }
+
+  .prose td,
+  .prose th {
+    @apply px-3 py-2;
+  }
+
+  .prose th {
+    @apply font-bold text-left;
+  }
+
+  .pdf-content {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .pdf-content h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+    color: #2563eb;
+  }
+
+  .pdf-content h2 {
+    font-size: 20px;
+    font-weight: semibold;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    color: #3b82f6;
+  }
+
+  .pdf-content h3 {
+    font-size: 18px;
+    font-weight: medium;
+    margin-top: 16px;
+    margin-bottom: 8px;
+    color: #60a5fa;
+  }
+
+  .pdf-content p {
+    margin-bottom: 16px;
+  }
+
+  .pdf-content ul,
+  .pdf-content ol {
+    margin-bottom: 16px;
+    padding-left: 20px;
+  }
+
+  .pdf-content li {
+    margin-bottom: 4px;
+  }
+
+  .pdf-content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+  }
+
+  .pdf-content th,
+  .pdf-content td {
+    padding: 8px;
+    border: 1px solid #e2e8f0;
+  }
+
+  .pdf-content th {
+    font-weight: bold;
+    text-align: left;
+    background-color: #f8fafc;
+  }
+
+  @media print {
+    .pdf-content {
+      page-break-inside: avoid;
+    }
+  }
+
+  @keyframes fadeInOut {
+    0%,
+    100% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+
+  .loading-text {
+    animation: fadeInOut 3s infinite;
+  }
+}
+
